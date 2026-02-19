@@ -1,0 +1,18 @@
+{
+    "Group": "jack",
+    "Name": "ThirdPersonNameplate",
+    "Version": "0.0.2",
+    "Description": "Shows your own nameplate above your head in third person.",
+    "Authors": [
+        {
+            "Name": "Jack <https://x.com/jackgamesftw>"
+        }
+    ],
+    "ServerVersion": "2026.02.19-1a311a592",
+    "Dependencies": {
+        "Hytale:EntityModule": "*"
+    },
+    "DisabledByDefault": false,
+    "Main": "me.jack.thirdpersonnameplate.ThirdPersonNameplatePlugin",
+    "IncludesAssetPack": true
+}

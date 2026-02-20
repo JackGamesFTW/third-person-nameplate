@@ -31,6 +31,7 @@ import me.jack.thirdpersonnameplate.commands.ShowNameplateCommand;
 import me.jack.thirdpersonnameplate.components.NameplateOwnerComponent;
 import me.jack.thirdpersonnameplate.systems.CrouchOffsetSystem;
 import me.jack.thirdpersonnameplate.systems.NameplateMirrorSystem;
+import me.jack.thirdpersonnameplate.systems.NameplateSyncTickSystem;
 
 import java.util.Map;
 import java.util.UUID;
@@ -192,6 +193,13 @@ public class ThirdPersonNameplatePlugin extends JavaPlugin {
     );
 
     this.getEntityStoreRegistry().registerSystem(new CrouchOffsetSystem(ownerComponentType));
+
+    this.getEntityStoreRegistry().registerSystem(
+      new NameplateSyncTickSystem(
+        ownerComponentType,
+        Nameplate.getComponentType()
+      )
+    );
 
     this.getEventRegistry().registerGlobal(PlayerConnectEvent.class, event -> {
       Holder<EntityStore> holder = event.getHolder();

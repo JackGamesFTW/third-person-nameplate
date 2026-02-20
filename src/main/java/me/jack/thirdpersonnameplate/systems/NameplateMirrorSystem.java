@@ -31,9 +31,9 @@ public class NameplateMirrorSystem extends RefChangeSystem<EntityStore, Nameplat
     private final ThirdPersonNameplatePlugin plugin;
 
     public NameplateMirrorSystem(
-            @Nonnull ThirdPersonNameplatePlugin plugin,
-            @Nonnull ComponentType<EntityStore, Nameplate> nameplateComponentType,
-            @Nonnull ComponentType<EntityStore, NameplateOwnerComponent> ownerComponentType
+        @Nonnull ThirdPersonNameplatePlugin plugin,
+        @Nonnull ComponentType<EntityStore, Nameplate> nameplateComponentType,
+        @Nonnull ComponentType<EntityStore, NameplateOwnerComponent> ownerComponentType
     ) {
         this.plugin = plugin;
         this.nameplateComponentType = nameplateComponentType;
@@ -55,31 +55,31 @@ public class NameplateMirrorSystem extends RefChangeSystem<EntityStore, Nameplat
 
     @Override
     public void onComponentAdded(
-            @Nonnull Ref<EntityStore> ref,
-            @Nonnull Nameplate component,
-            @Nonnull Store<EntityStore> store,
-            @Nonnull CommandBuffer<EntityStore> commandBuffer
+        @Nonnull Ref<EntityStore> ref,
+        @Nonnull Nameplate component,
+        @Nonnull Store<EntityStore> store,
+        @Nonnull CommandBuffer<EntityStore> commandBuffer
     ) {
         mirrorAndClear(ref, component, store, commandBuffer);
     }
 
     @Override
     public void onComponentSet(
-            @Nonnull Ref<EntityStore> ref,
-            @Nullable Nameplate oldComponent,
-            @Nonnull Nameplate newComponent,
-            @Nonnull Store<EntityStore> store,
-            @Nonnull CommandBuffer<EntityStore> commandBuffer
+        @Nonnull Ref<EntityStore> ref,
+        @Nullable Nameplate oldComponent,
+        @Nonnull Nameplate newComponent,
+        @Nonnull Store<EntityStore> store,
+        @Nonnull CommandBuffer<EntityStore> commandBuffer
     ) {
         mirrorAndClear(ref, newComponent, store, commandBuffer);
     }
 
     @Override
     public void onComponentRemoved(
-            @Nonnull Ref<EntityStore> ref,
-            @Nonnull Nameplate component,
-            @Nonnull Store<EntityStore> store,
-            @Nonnull CommandBuffer<EntityStore> commandBuffer
+        @Nonnull Ref<EntityStore> ref,
+        @Nonnull Nameplate component,
+        @Nonnull Store<EntityStore> store,
+        @Nonnull CommandBuffer<EntityStore> commandBuffer
     ) {
         if (store.getComponent(ref, this.ownerComponentType) != null) {
             return;
@@ -97,10 +97,10 @@ public class NameplateMirrorSystem extends RefChangeSystem<EntityStore, Nameplat
     }
 
     private void mirrorAndClear(
-            @Nonnull Ref<EntityStore> playerRef,
-            @Nonnull Nameplate playerNameplate,
-            @Nonnull Store<EntityStore> store,
-            @Nonnull CommandBuffer<EntityStore> commandBuffer
+        @Nonnull Ref<EntityStore> playerRef,
+        @Nonnull Nameplate playerNameplate,
+        @Nonnull Store<EntityStore> store,
+        @Nonnull CommandBuffer<EntityStore> commandBuffer
     ) {
         if (store.getComponent(playerRef, this.ownerComponentType) != null) {
             return;

@@ -2,6 +2,7 @@ package me.jack.thirdpersonnameplate.commands;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.protocol.GameMode;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
@@ -22,6 +23,7 @@ public class ShowNameplateCommand extends AbstractPlayerCommand {
     super("shownameplate", "Toggles your own nameplate visibility in third person");
 
     this.plugin = plugin;
+    this.setPermissionGroup(GameMode.Adventure);
   }
 
   @Override

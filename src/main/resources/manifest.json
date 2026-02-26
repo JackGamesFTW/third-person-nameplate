@@ -1,7 +1,7 @@
 {
     "Group": "jack",
     "Name": "ThirdPersonNameplate",
-    "Version": "0.1.0",
+    "Version": "0.2.0",
     "Description": "Shows your own nameplate above your head in third person.",
     "Authors": [
         {
